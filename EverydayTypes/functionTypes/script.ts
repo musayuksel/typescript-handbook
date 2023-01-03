@@ -6,3 +6,12 @@ function greetMe(name: string): void {
 greetMe('maddison');
 // greetMe();//Even if you don’t have type annotations on your parameters, TypeScript will still check that you passed the right number of arguments.
 // greetMe(35); //will throw error because 35 is not a string
+
+// ANONYMOUS FUNCTIONS
+
+const userNames = ['Alice', 'Bob', 'Eve'];
+userNames.forEach((userName) => {
+  //TS will infer the type of userName
+  //This process is called contextual typing because the context that the function occurred within informs what type it should have.
+  console.log(userName.toUpperCase());
+});
