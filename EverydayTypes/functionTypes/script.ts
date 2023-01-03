@@ -25,3 +25,11 @@ function buildName(firstName: string, lastName?: string, age: number = 0) {
 }
 
 let result1 = buildName('Bob'); // works correctly now
+
+function buildNameOptional(firstName: string, lastName?: string, age: number = 0) {
+    //console.log(lastName.toUpperCase());//error because lastName is optional
+    console.log(lastName?.toUpperCase());
+    //lastName is optional
+    if (lastName) return firstName + ' ' + lastName + ' ' + age;
+    else return firstName+ ' ' + age;
+}
