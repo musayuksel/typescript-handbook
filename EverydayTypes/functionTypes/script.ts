@@ -1,5 +1,5 @@
 // Parameter type annotation
-function greetMe(name: string) {
+function greetMe(name: string): void {
   console.log('Hello, ' + name.toUpperCase() + '!!');
 }
 
