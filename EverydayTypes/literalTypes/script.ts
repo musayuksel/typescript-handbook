@@ -17,3 +17,10 @@ const req = { url: "https://example.com", method: "GET" };
 //solution 1 // Type assertion
 handleRequest(req.url, req.method as "GET");//OR
 handleRequest(req.url, req.method as "GET" | "POST");
+
+//UNDEFINED AND NULL
+
+function doSomething(x?: string | null) {
+    // console.log("Hello, " + x.toUpperCase());//error because x might be null
+    console.log("Hello, " + x?.toUpperCase());
+}
