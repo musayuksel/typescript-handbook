@@ -23,3 +23,13 @@ function printCoordInterface(pt: PointInterface) {
   console.log("The coordinate's y value is " + pt.y);
 }
 
+// DIFFERENCE BETWEEN TYPE ALIAS AND INTERFACE
+// Type aliases can’t be extended or implemented from (nor can they extend/implement other types).
+// Interfaces can extend other interfaces and can be extended by other interfaces.
+interface PointInterface2 extends PointInterface {
+  z: number;
+}
+
+type Point2 = Point & {
+  z: number;
+};
