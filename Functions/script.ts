@@ -61,3 +61,11 @@ function longest<Type extends { length: number }>(a: Type, b: Type) {
     return b;
   }
 }
+
+// SPECIFYING TYPE ARGUMENTS-----------------------------
+// We can specify the type arguments explicitly.
+function combine<Type>(arr1: Type[], arr2: Type[]): Type[] {
+  return arr1.concat(arr2);
+}
+// const arr = combine([1, 2, 3], ["hello"]);//error because the types are not the same
+const arr = combine<number | string>([1, 2, 3], ['hello']); //works because we specify the type
