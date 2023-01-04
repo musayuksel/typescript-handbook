@@ -124,3 +124,20 @@ function getArea(shape: Shape) {
     // Object is possibly 'undefined'. because radius is optional
   }
 }
+
+// NEVER TYPE---------------------------------------------
+type Shape3 = Circle | Square;
+
+function getArea3(shape: Shape) {
+  switch (shape.kind) {
+    case 'circle':
+      return Math.PI * shape.radius ** 2;
+    case 'square':
+      return shape.size ** 2;
+    default: //this will throw error if we add new shape
+      //where you have removed all possibilities and have nothing left.
+      //In those cases, TypeScript will use a never type to represent a state which shouldn’t exist.
+      const _exhaustiveCheck: never = shape;
+      return _exhaustiveCheck;
+  }
+}
