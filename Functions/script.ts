@@ -125,3 +125,16 @@ const d2 = makeDate(5, 5, 5);
 // function fn(x: boolean): void;
 // Argument type isn't right
 // function fn(x: string): void; 
+
+
+//  WRITING GOOD OVERLOADS-----------------------------
+// 1. Always prefer parameters with union types instead of overloads when possible
+function len(s: string): number;
+function len(arr: any[]): number;
+function len(x: any) {
+  return x.length;
+}
+len(""); // OK
+len([0]); // OK
+
+// len(Math.random() > 0.5 ? "hello" : [0]); //error because the type is not string or any[]
