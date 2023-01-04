@@ -61,3 +61,7 @@ function logValue(x: Date | string) {
     console.log(x.toUpperCase());
   }
 }
+
+//ASSIGNMENT---------------------------------------------
+let myVariable = Math.random() < 0.5 ? 10 : 'hello world!'; // number | string
+//le, TypeScript looks at the right side of the assignment and narrows the left side appropriately.
