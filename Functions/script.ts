@@ -41,7 +41,23 @@ const undefinedType = firstElementGeneric([]); // returns undefined
 const objType = firstElementGeneric([{ a: 1 }, { b: 2 }]); // returns {a: number}
 
 // We can use multiple type parameters as well.
-function myMapFunction<Input, Output>(arr: Input[], callback: (arg: Input) => Output): Output[] {
-    return arr.map(callback);
+function myMapFunction<Input, Output>(
+  arr: Input[],
+  callback: (arg: Input) => Output
+): Output[] {
+  return arr.map(callback);
 }
-const stringToNumber = myMapFunction(['1', '2', '3'], (str) => parseInt(str, 10)); // returns number[]
+const stringToNumber = myMapFunction(['1', '2', '3'], (str) =>
+  parseInt(str, 10)
+); // returns number[]
+
+// CONSTRAINTS-----------------------------
+// We can use constraints to ensure that the type parameter is a subtype of another type.
+function longest<Type extends { length: number }>(a: Type, b: Type) {
+  //we assume that the type has a length property
+  if (a.length >= b.length) {
+    return a;
+  } else {
+    return b;
+  }
+}
