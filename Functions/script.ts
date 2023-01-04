@@ -23,3 +23,25 @@ const myFn = (someArg: number) => {
 myFn.description = 'checks if arg is greater than 5';
 
 doSomething(myFn);
+
+// GENERIC FUNCTIONS-----------------------------
+function firstElement(arr: any[]) {
+  //Returns any type
+  return arr[0];
+}
+
+function firstElementGeneric<Type>(arr: Type[]): Type | undefined {
+  //Returns the type of the array
+  //Note that we didn’t have to specify Type in this sample. The type was inferred - chosen automatically - by TypeScript.
+  return arr[0];
+}
+const stringType = firstElementGeneric(['a', 'b', 'c']); // returns string
+const numType = firstElementGeneric([1, 2, 3]); // returns number
+const undefinedType = firstElementGeneric([]); // returns undefined
+const objType = firstElementGeneric([{ a: 1 }, { b: 2 }]); // returns {a: number}
+
+// We can use multiple type parameters as well.
+function myMapFunction<Input, Output>(arr: Input[], callback: (arg: Input) => Output): Output[] {
+    return arr.map(callback);
+}
+const stringToNumber = myMapFunction(['1', '2', '3'], (str) => parseInt(str, 10)); // returns number[]
