@@ -69,3 +69,20 @@ function combine<Type>(arr1: Type[], arr2: Type[]): Type[] {
 }
 // const arr = combine([1, 2, 3], ["hello"]);//error because the types are not the same
 const arr = combine<number | string>([1, 2, 3], ['hello']); //works because we specify the type
+
+//GUIDELINES FOR GENERIC FUNCTIONS-----------------------------
+// When possible, use the type parameter itself rather than constraining it
+function firstElement1<Type>(arr: Type[]) {
+  return arr[0]; //Type is inferred = GOOD
+}
+
+function firstElement2<Type extends any[]>(arr: Type) {
+  return arr[0]; //Type is constrained = BAD
+}
+
+// Always use as few type parameters as possible
+// If a type parameter only appears in one location, strongly reconsider if you actually need it
+function greet<Str extends string>(s: Str) {
+  //BAD - redundant type parameter
+  console.log('Hello, ' + s);
+}
