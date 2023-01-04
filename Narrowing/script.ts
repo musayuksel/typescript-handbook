@@ -90,3 +90,37 @@ function isFish(pet: Fish2 | Bird2): pet is Fish2 {
 declare function getSmallPet(): Fish2 | Bird2;
 const zoo = [getSmallPet(), getSmallPet(), getSmallPet()]; //zoo is an array of Fish2 | Bird2
 const fishes = zoo.filter(isFish); // Fish2[]
+
+// DISCRIMINATED UNIONS---------------------------------------------
+interface Square {
+  kind: 'square';
+  size: number;
+}
+interface Circle {
+  kind: 'circle';
+  radius: number;
+}
+
+type Shape = Square | Circle;
+// The kind property is a common property that discriminates the union.
+function area(shape: Shape) {
+  switch (shape.kind) {
+    case 'square':
+      return shape.size * shape.size;
+    case 'circle':
+      return Math.PI * shape.radius ** 2;
+  }
+}
+
+//don't put all shapes in one interface
+interface Shape2 {
+  kind: 'square' | 'circle';
+  radius?: number;
+  size?: number;
+}
+function getArea(shape: Shape) {
+  if (shape.kind === 'circle') {
+    return Math.PI * shape.radius ** 2;
+    // Object is possibly 'undefined'. because radius is optional
+  }
+}
