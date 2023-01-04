@@ -124,8 +124,7 @@ const d2 = makeDate(5, 5, 5);
 // The implementation signature must also be compatible with the overload signatures
 // function fn(x: boolean): void;
 // Argument type isn't right
-// function fn(x: string): void; 
-
+// function fn(x: string): void;
 
 //  WRITING GOOD OVERLOADS-----------------------------
 // 1. Always prefer parameters with union types instead of overloads when possible
@@ -134,7 +133,16 @@ function len(arr: any[]): number;
 function len(x: any) {
   return x.length;
 }
-len(""); // OK
+len(''); // OK
 len([0]); // OK
 
 // len(Math.random() > 0.5 ? "hello" : [0]); //error because the type is not string or any[]
+
+// DECLARING THIS-----------------------------
+const user = {
+  id: 42,
+  admin: false,
+  becomeAdmin() {
+    this.admin = true;//DON"T USE ARROW FUNCTIONS
+  },
+};
