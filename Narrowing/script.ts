@@ -76,3 +76,17 @@ function foo(x: string | number) {
   }
   return x; // error: Unreachable code detected.
 }
+
+// TYPE PREDICATES---------------------------------------------
+type Fish2 = { swim: () => void };
+type Bird2 = { fly: () => void };
+
+function isFish(pet: Fish2 | Bird2): pet is Fish2 {
+  //pet is Fish is our type predicate in this example.
+  //A predicate takes the form parameterName is Type, where parameterName(pet) must be the name of a parameter from the current function signature.
+  return (pet as Fish2).swim !== undefined;
+}
+
+declare function getSmallPet(): Fish2 | Bird2;
+const zoo = [getSmallPet(), getSmallPet(), getSmallPet()]; //zoo is an array of Fish2 | Bird2
+const fishes = zoo.filter(isFish); // Fish2[]
