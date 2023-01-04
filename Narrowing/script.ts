@@ -23,3 +23,16 @@ function printAll2(strs: string | string[] | null) {
     console.log(strs);
   }
 }
+
+// EQUALITY---------------------------------------------
+function printAll3(strs: string | string[] | null ) {
+  if (strs !== null) {// DON'T USE if(strs) because it will return false for empty string
+    if (typeof strs === 'object') {
+      for (const s of strs) {
+        console.log(s);
+      }
+    } else if (typeof strs === 'string') {
+      console.log(strs);
+    }
+  }
+}
