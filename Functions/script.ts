@@ -86,3 +86,20 @@ function greet<Str extends string>(s: Str) {
   //BAD - redundant type parameter
   console.log('Hello, ' + s);
 }
+
+// OPTIONAL PARAMETERS-----------------------------
+function f(x?: number) {
+  // ...
+}
+f(); // OK
+f(10); // OK
+f(undefined); // OK
+
+// In JavaScript, if you call a function with more arguments than there are parameters,
+// the extra arguments are simply ignored.
+// TypeScript behaves the same way.
+// Functions with fewer parameters (of the same types) can always take the place of functions with more parameters.
+function myForEach(arr: any[], callback: (arg: any, index?: number) => void) {
+  //index is optional. DON'T DO THIS
+  //...
+}
