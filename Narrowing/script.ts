@@ -65,3 +65,14 @@ function logValue(x: Date | string) {
 //ASSIGNMENT---------------------------------------------
 let myVariable = Math.random() < 0.5 ? 10 : 'hello world!'; // number | string
 //le, TypeScript looks at the right side of the assignment and narrows the left side appropriately.
+
+// CONTROL FLOW ANALYSIS - REACHABILITY-----------------------------------------
+function foo(x: string | number) {
+  if (typeof x === 'string') {
+    // TypeScript knows that x is a string from this point on
+    return x.toUpperCase();
+  } else {
+    return x;
+  }
+  return x; // error: Unreachable code detected.
+}
