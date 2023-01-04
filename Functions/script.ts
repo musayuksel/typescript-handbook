@@ -103,3 +103,25 @@ function myForEach(arr: any[], callback: (arg: any, index?: number) => void) {
   //index is optional. DON'T DO THIS
   //...
 }
+
+// FUNCTION OVERLOADS-----------------------------
+// Write some number of function signatures (usually two or more), followed by the body of the function:
+function makeDate(timestamp: number): Date;
+function makeDate(m: number, day: number, year: number): Date;
+
+function makeDate(mOrTimestamp: number, day?: number, year?: number): Date {
+  if (day !== undefined && year !== undefined) {
+    return new Date(year, mOrTimestamp, day);
+  } else {
+    return new Date(mOrTimestamp);
+  }
+}
+const d1 = makeDate(12345678);
+const d2 = makeDate(5, 5, 5);
+// const d3 = makeDate(1, 3);//error because we are missing the year
+// The signature of the implementation is not visible from the outside. When writing an overloaded function, you should always have TWO or more signatures above the implementation of the function.
+
+// The implementation signature must also be compatible with the overload signatures
+// function fn(x: boolean): void;
+// Argument type isn't right
+// function fn(x: string): void; 
