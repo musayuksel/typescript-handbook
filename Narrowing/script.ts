@@ -51,3 +51,13 @@ function move(animal: Fish | Bird | Human) {
   // narrow to Bird | Human
   return animal;
 }
+
+// INSTANCEOF OPERATOR---------------------------------------------
+function logValue(x: Date | string) {
+  if (x instanceof Date) {
+    // narrow to Date
+  } else {
+    // narrow to string
+    console.log(x.toUpperCase());
+  }
+}
