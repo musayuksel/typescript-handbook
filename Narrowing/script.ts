@@ -25,8 +25,9 @@ function printAll2(strs: string | string[] | null) {
 }
 
 // EQUALITY---------------------------------------------
-function printAll3(strs: string | string[] | null ) {
-  if (strs !== null) {// DON'T USE if(strs) because it will return false for empty string
+function printAll3(strs: string | string[] | null) {
+  if (strs !== null) {
+    // DON'T USE if(strs) because it will return false for empty string
     if (typeof strs === 'object') {
       for (const s of strs) {
         console.log(s);
@@ -35,4 +36,18 @@ function printAll3(strs: string | string[] | null ) {
       console.log(strs);
     }
   }
+}
+
+// IN OPERATOR---------------------------------------------
+type Fish = { swim: () => void };
+type Bird = { fly: () => void };
+type Human = { fly?: () => void; swim?: () => void };
+
+function move(animal: Fish | Bird | Human) {
+  if ('swim' in animal) {
+    // narrow to Fish | Human
+    return animal;
+  }
+  // narrow to Bird | Human
+  return animal;
 }
