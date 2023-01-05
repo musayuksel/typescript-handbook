@@ -163,3 +163,20 @@ function noop() {
 // UNKNOWN-----------------------------
 // The unknown type is the type-safe counterpart of any.
 // This is useful when describing function types because you can describe functions that accept any value without having any values in your function body.
+
+// NEVER-----------------------------
+// The never type represents the type of values that never occur.
+// In a return type, this means that the function throws an exception or terminates execution of the program.
+function fail(msg: string): never {
+  throw new Error(msg);
+}
+
+function fn(x: string | number) {
+  if (typeof x === 'string') {
+    // do something
+  } else if (typeof x === 'number') {
+    // do something else
+  } else {
+    x; // has type 'never'!
+  }
+}
