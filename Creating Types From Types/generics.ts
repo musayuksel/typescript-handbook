@@ -43,3 +43,12 @@ function loggingIdentity3<Type extends Lengthwise>(arg: Type): Type {
   console.log(arg.length); // Now we know it has a .length property, so no more error
   return arg;
 }
+
+// USING TYPE PARAMETERS IN GENERIC CONSTRAINTS-----------------------------
+// we can declare a type parameter that is constrained by another type parameter
+function getProperty<Type, Key extends keyof Type>(obj: Type, key: Key) {
+  return obj[key];
+}
+const x = { a: 1, b: 2, c: 3, d: 4 };
+getProperty(x, 'a');
+// getProperty(x, 'm');//error, m is not a property of x
