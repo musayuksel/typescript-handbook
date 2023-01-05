@@ -159,3 +159,7 @@ function noop() {
 // object is not Object. Always use object!
 // The special type object refers to any value that isn’t a primitive (string, number, bigint, boolean, symbol, null, or undefined).
 // This is different from the empty object type { }
+
+// UNKNOWN-----------------------------
+// The unknown type is the type-safe counterpart of any.
+// This is useful when describing function types because you can describe functions that accept any value without having any values in your function body.
