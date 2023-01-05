@@ -99,3 +99,18 @@ interface BasicAddress {
 interface AddressWithUnit extends BasicAddress {
   unit: string;
 }
+
+// INTERSECTION TYPES-----------------------------
+// Intersection types are a way of combining multiple types into one.
+// This allows you to add together existing types to get a single type that has all the features you need.
+interface ColorfulShape {
+  color: string;
+}
+interface CircleShape {
+  radius: number;
+}
+type ColorfulCircle = ColorfulShape & CircleShape;
+const cc: ColorfulCircle = {
+  color: 'red',
+  radius: 5,
+};
