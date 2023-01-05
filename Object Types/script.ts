@@ -60,3 +60,29 @@ function doSomething(obj: SomeType) {
   obj.arrayProp[2] = 'hello'; //OK
   // obj.arrayProp = ['hello'];//error
 }
+
+// INDEX SIGNATURES-----------------------------
+// Index signatures are a way of describing the “dictionary” pattern common in JavaScript:
+//IF we don't know the property names in advance
+interface weDoNotKnow {
+  name: string;
+}
+const weDonotKnow: weDoNotKnow = {
+  name: 'Bob',
+  // age: 23,//error
+};
+//SOLUTION
+interface StringArray {
+  [index: number]: string; //index signature
+  //   I can add any key value pair as long as the value is a string
+}
+// Or more complex:
+interface StringArray2 {
+  [index: number]: string | number;
+}
+const myArray: StringArray = {
+  // or ARRAY OF STRING ['Bob', 'Fred']
+  0: 'Bob',
+  1: 'Fred',
+};
+const secondItem = myArray[1]; //Fred
