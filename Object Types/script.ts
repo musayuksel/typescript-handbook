@@ -150,3 +150,15 @@ function doStuff(values: ReadonlyArray<string>) {
 }
 // const roArray = new ReadonlyArray('red', 'green', 'blue');//there is no constructor
 const roArray: ReadonlyArray<string> = ['red', 'green', 'blue']; // we can't mutate it
+
+// TUPLE TYPES-----------------------------
+// A tuple type is another sort of Array type that knows exactly how many elements it contains, and exactly which types it contains at specific positions.
+type StringNumberBooleans = [string, number, boolean];
+const tuple: StringNumberBooleans = ['hello', 100, true]; //we can not add or remove elements
+const [first, second, third] = tuple; //destructuring, types are inferred
+//we also can add optional elements
+type StringNumberBooleans2 = [string, number, boolean, string?];
+//we can also add rest elements
+type StringNumberBooleans3 = [string, number, ...boolean[]];
+type StringBooleansNumber = [string, ...boolean[], number];
+type BooleansStringNumber = [...boolean[], string, number];
