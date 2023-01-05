@@ -41,3 +41,22 @@ function paintShapeBetter({ shape, xPos = 0, yPos = 0 }: PaintOptions) {
 paintShape({ shape: 'circle' }); // OK
 paintShape({ shape: 'square', xPos: 100 }); // OK
 paintShape({ shape: 'square', xPos: 100, yPos: 100 }); // OK
+
+// 2-READONLY PROPERTIES
+// While it won’t change any behavior at runtime, a property marked as readonly can’t be written to during type-checking.
+interface SomeType {
+  readonly prop: string;
+  readonly arrayProp: string[];
+}
+
+function doSomething(obj: SomeType) {
+  // We can read from 'obj.prop'.
+  console.log(`prop has the value '${obj.prop}'.`);
+  // But we can't re-assign it.
+  //   obj.prop = 'hello';//error
+
+  // We can mutate the array though.
+  obj.arrayProp.push('hello');
+  obj.arrayProp[2] = 'hello'; //OK
+  // obj.arrayProp = ['hello'];//error
+}
