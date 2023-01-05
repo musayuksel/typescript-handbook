@@ -114,3 +114,17 @@ const cc: ColorfulCircle = {
   color: 'red',
   radius: 5,
 };
+
+// GENERIC OBJECT TYPES-----------------------------
+interface Box<Type> {
+  contents: Type;
+}
+const box1: Box<string> = { contents: 'hello' };
+const stringBoxes: Box<string>[] = [
+  { contents: 'hello' },
+  { contents: 'world' },
+];
+// also can be used with functions
+function setContents<Type>(box: Box<Type>, newContents: Type) {
+  box.contents = newContents;
+}
