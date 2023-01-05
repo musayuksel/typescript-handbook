@@ -86,3 +86,16 @@ const myArray: StringArray = {
   1: 'Fred',
 };
 const secondItem = myArray[1]; //Fred
+
+// EXTENDING INTERFACES-----------------------------
+// DRY code
+interface BasicAddress {
+  name?: string;
+  street: string;
+  city: string;
+  country: string;
+  postalCode: string;
+}
+interface AddressWithUnit extends BasicAddress {
+  unit: string;
+}
