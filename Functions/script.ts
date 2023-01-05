@@ -180,3 +180,9 @@ function fn(x: string | number) {
     x; // has type 'never'!
   }
 }
+
+// FUNCTION TYPES-----------------------------
+function doSomething(f: Function) {
+  //DON'T USE THIS, Return type is ANY
+  return f(1, 2, 3);
+}
