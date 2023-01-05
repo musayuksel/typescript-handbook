@@ -17,3 +17,19 @@ function loggingIdentity2<Type>(arg: Type[]): Type[] {
   console.log(arg.length); // Array has a .length, so no more error
   return arg;
 }
+
+// GENERIC CLASSES-----------------------------
+class GenericNumber<NumType> {
+  zeroValue: NumType;
+  add: (x: NumType, y: NumType) => NumType;
+
+  constructor(zeroValue: NumType, add: (x: NumType, y: NumType) => NumType) {
+    this.zeroValue = zeroValue;
+    this.add = add;
+  }
+}
+
+const myGenericNumber = new GenericNumber<number>(0, (x, y) => {
+  console.log('SUM:' + (x + y));
+  return x + y;
+});
