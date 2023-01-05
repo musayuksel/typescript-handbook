@@ -137,3 +137,16 @@ interface MyArray<Type> {
   push(...items: Type[]): number;
   // ...and so on.
 }
+
+// READONLY ARRAY-----------------------------
+
+function doStuff(values: ReadonlyArray<string>) {
+  // We can read from 'values'...
+  const copy = values.slice();
+  console.log(`The first value is ${values[0]}`);
+
+  // ...but we can't mutate 'values'.
+  //   values.push('hello!');//error
+}
+// const roArray = new ReadonlyArray('red', 'green', 'blue');//there is no constructor
+const roArray: ReadonlyArray<string> = ['red', 'green', 'blue']; // we can't mutate it
