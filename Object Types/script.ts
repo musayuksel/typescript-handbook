@@ -128,3 +128,12 @@ const stringBoxes: Box<string>[] = [
 function setContents<Type>(box: Box<Type>, newContents: Type) {
   box.contents = newContents;
 }
+
+// ARRAY TYPES-----------------------------
+// Array itself is a generic type
+interface MyArray<Type> {
+  length: number;
+  pop(): Type | undefined;
+  push(...items: Type[]): number;
+  // ...and so on.
+}
