@@ -33,3 +33,13 @@ const myGenericNumber = new GenericNumber<number>(0, (x, y) => {
   console.log('SUM:' + (x + y));
   return x + y;
 });
+
+// GENERIC CONSTRAINTS-----------------------------
+// we can use generic constraints to require the type argument to have certain properties
+interface Lengthwise {
+  length: number;
+}
+function loggingIdentity3<Type extends Lengthwise>(arg: Type): Type {
+  console.log(arg.length); // Now we know it has a .length property, so no more error
+  return arg;
+}
