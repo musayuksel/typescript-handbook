@@ -154,3 +154,8 @@ function noop() {
   // ...
   return;
 }
+
+// OBJECT-----------------------------
+// object is not Object. Always use object!
+// The special type object refers to any value that isn’t a primitive (string, number, bigint, boolean, symbol, null, or undefined).
+// This is different from the empty object type { }
