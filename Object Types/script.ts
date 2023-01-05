@@ -162,3 +162,9 @@ type StringNumberBooleans2 = [string, number, boolean, string?];
 type StringNumberBooleans3 = [string, number, ...boolean[]];
 type StringBooleansNumber = [string, ...boolean[], number];
 type BooleansStringNumber = [...boolean[], string, number];
+
+// READONLY TUPLE-----------------------------
+// ReadonlyArray is a generic type, so we can use it to make a tuple readonly
+function doSomething(pair: readonly [string, number]) {
+  // pair[0] = "hello!";//error
+}
