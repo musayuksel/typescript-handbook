@@ -217,3 +217,15 @@ type ABC = { a: number; b: number; c: number };
 function sum1({ a, b, c }: ABC) {
   console.log(a + b + c);
 }
+
+// RETURN TYPE VOID-----------------------------
+type voidFunc = () => void;
+
+const f1: voidFunc = () => {
+  return true;
+};
+const f2: voidFunc = () => true;
+
+// And when the return value of one of these functions is assigned to another variable, it will retain the type of void:
+const v1 = f1();//v1 is void
+const v2 = f2();
