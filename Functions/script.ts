@@ -205,3 +205,15 @@ arr1.push(...arr2);
 // const args = [8, 5];
 const args = [8, 5] as const;
 const angle = Math.atan2(...args);
+
+// PARAMETER DESTRUCTURING-----------------------------
+function sum({ a, b, c }: { a: number; b: number; c: number }) {
+  // The type annotation for the object goes after the destructuring syntax:
+  console.log(a + b + c);
+}
+sum({ a: 1, b: 2, c: 3 });
+// OR BETTER
+type ABC = { a: number; b: number; c: number };
+function sum1({ a, b, c }: ABC) {
+  console.log(a + b + c);
+}
