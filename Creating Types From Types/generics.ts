@@ -6,3 +6,14 @@ function identity<Type>(arg: Type): Type {
 const output = identity<string>('myString'); //return type is string
 // 2. Let type argument inference set the value for us: More common
 const output2 = identity('myString'); //return type is string
+
+// Working with Generic Type Variables
+function loggingIdentity<Type>(arg: Type): Type {
+  // console.log(arg.length);  // Error: T doesn't have .length
+  return arg;
+}
+// solution: we can use the type parameter in another way:
+function loggingIdentity2<Type>(arg: Type[]): Type[] {
+  console.log(arg.length); // Array has a .length, so no more error
+  return arg;
+}
