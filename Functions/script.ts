@@ -143,6 +143,14 @@ const user = {
   id: 42,
   admin: false,
   becomeAdmin() {
-    this.admin = true;//DON"T USE ARROW FUNCTIONS
+    this.admin = true; //DON"T USE ARROW FUNCTIONS
   },
 };
+
+// VOID-----------------------------
+//  VOID is NOT the same as UNDEFINED
+// Function doesn't return any explicit value OR  doesn't have return statement
+function noop() {
+  // ...
+  return;
+}
