@@ -30,3 +30,15 @@ class GoodPerson2 extends GoodPerson {
     this.age = age;
   }
 }
+
+//METHODS
+class GoodPerson3 extends GoodPerson {
+  age: number;
+  constructor(fistName = 'userName', lastName = 'userLastName', age = 0) {
+    super('Max', 'Mustermann');
+    this.age = age;
+  }
+  incrementAge() {
+    this.age++;
+  }
+}
