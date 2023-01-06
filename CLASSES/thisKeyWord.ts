@@ -29,3 +29,19 @@ console.log(myObj2());
 // The this value is guaranteed to be correct at runtime, even for code not checked with TypeScript
 // This will use more memory, because each class instance will have its own copy of each function defined this way
 // You can’t use super.getName in a derived class, because there’s no entry in the prototype chain to fetch the base class method from
+
+// this PARAMETERS -------------------------------------
+// this parameters are a way to tell the compiler that a function will be called with a specific this value:
+class MyClass5 {
+  name = 'MyClass5';
+  getName(this: MyClass5) {
+    return this.name;
+  }
+}
+const myClass5 = new MyClass5();
+const myObj3 = {
+  name: 'obj',
+  getName: myClass5.getName,
+};
+// Prints "obj", not "MyClass5"
+console.log(myObj3.getName());
