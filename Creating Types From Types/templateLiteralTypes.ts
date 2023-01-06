@@ -10,3 +10,7 @@ type AllLocaleIDs = `${EmailLocaleIDs | FooterLocaleIDs}_id`;
 // For each interpolated position in the template literal, the unions are cross multiplied:
 type Lang = 'en' | 'ja' | 'pt';
 type LocaleMessageIDs = `${Lang}_${AllLocaleIDs}`; //HUGE UNION
+
+// INTRINSIC TEMPLATE LITERAL TYPES-----------------------------
+//1- Uppercase
+type T10 = Uppercase<'hello'>; // "HELLO"
