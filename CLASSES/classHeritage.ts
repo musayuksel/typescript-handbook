@@ -53,3 +53,28 @@ class Dog2 extends Animal {
 }
 // IMPORTANT:
 const dog2: Animal = new Dog2(); //we can give superclasses a more specific type than the subclass
+
+// INITIALIZING ORDER -----------------------------
+class Base {
+  name = 'base';
+  constructor() {
+    console.log('My name is ' + this.name);
+  }
+}
+
+class Derived extends Base {
+  name = 'derived';
+  constructor() {
+    super();
+    console.log('My name is ' + this.name);
+  }
+}
+const d = new Derived();
+// [LOG]: "My name is base"
+// [LOG]: "My name is derived"
+// The order of class initialization, as defined by JavaScript, is:
+
+// The base class fields are initialized
+// The base class constructor runs
+// The derived class fields are initialized
+// The derived class constructor runs
