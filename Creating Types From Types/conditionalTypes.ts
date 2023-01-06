@@ -19,3 +19,14 @@ function createLabel<T extends number | string>(idOrName: T): NameOrId<T> {
   throw 'unimplemented';
 }
 const label1 = createLabel(123); //label1 is IdLabel
+
+// CONDITIONAL TYPE CONSTRAINTS-----------------------------
+
+// type MessageOf<T> = T['message']; //*** Error*/
+type MessageOf<T extends { message: unknown }> = T['message']; //OK, we
+interface Email {
+  message: string;
+}
+const email: MessageOf<Email> = 'Hello World'; //OK
+
+type MessageOf2<T> = T extends { message: unknown } ? T['message'] : never; //OK
