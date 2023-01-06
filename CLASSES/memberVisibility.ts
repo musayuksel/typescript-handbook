@@ -20,6 +20,10 @@ class ProtectedGreeter {
   protected getName() {
     return this.name;
   }
+  protected greet2() {
+    //I will override this method in the subclass
+    console.log(`Hello, ${this.name}`);
+  }
 }
 class SpecialGreeter extends ProtectedGreeter {
   constructor(name: string) {
@@ -28,7 +32,11 @@ class SpecialGreeter extends ProtectedGreeter {
   greet() {
     console.log(`Hello, ${this.getName()}`); //I can access the protected method getName()
   }
+  greet2() {
+    console.log('override greet2');
+  }
 }
 const specialGreeter = new SpecialGreeter('Max');
 specialGreeter.greet(); //OK
 // specialGreeter.getName(); //Error, I can't access the protected method getName()
+specialGreeter.greet2(); //OK, because I override the method in the subclass and it is public
