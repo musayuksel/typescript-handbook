@@ -17,3 +17,9 @@ type T10 = Uppercase<'hello'>; // "HELLO"
 
 //2- Lowercase
 type T11 = Lowercase<'HELLO'>; // "hello"
+
+//3- Capitalize
+type T12 = Capitalize<'hello world'>; // "Hello world"//just the first letter
+
+//4- Uncapitalize
+type T13 = Uncapitalize<'Hello World'>; // "hello World"
