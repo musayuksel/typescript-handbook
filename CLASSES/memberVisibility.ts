@@ -99,3 +99,22 @@ function doSomething() {}
 const MyHelperObject = {
   dosomething() {},
 };
+
+//3-1 static blocks -------------------------------------
+class Foo {
+  static #count = 0;
+
+  get count() {
+    return Foo.#count;
+  }
+
+  static {
+    try {
+      const lastInstances = () => 1; //some logic to get the last instances of
+      Foo.#count += lastInstances();
+    } catch {}
+  }
+}
+
+const foo2 = new Foo();
+console.log(foo2.count); //1
