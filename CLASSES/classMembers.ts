@@ -42,3 +42,20 @@ class GoodPerson3 extends GoodPerson {
     this.age++;
   }
 }
+
+// ACCESSORS - GETTERS AND SETTERS
+class C {
+  _length = 0;
+  get length() {
+    return this._length;
+  }
+  set length(value) {
+    this._length = value;
+  }
+}
+//NOTE:
+//  TypeScript has some special inference rules for accessors:
+
+// 1- If get exists but no set, the property is automatically readonly
+// 2- If the type of the setter parameter is not specified, it is inferred from the return type of the getter
+// 3- Getters and setters must have the same Member Visibility
