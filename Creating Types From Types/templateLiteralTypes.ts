@@ -14,3 +14,6 @@ type LocaleMessageIDs = `${Lang}_${AllLocaleIDs}`; //HUGE UNION
 // INTRINSIC TEMPLATE LITERAL TYPES-----------------------------
 //1- Uppercase
 type T10 = Uppercase<'hello'>; // "HELLO"
+
+//2- Lowercase
+type T11 = Lowercase<'HELLO'>; // "hello"
