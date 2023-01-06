@@ -26,3 +26,18 @@ type LockedAccount = {
 
 type UnlockedAccount = CreateMutable<LockedAccount>;
 // UnlockedAccount is { id: string; name: string; }//not readonly
+
+// Removes 'optional' attributes from a type's properties
+type Concrete<Type> = {
+  //   [Property in keyof Type]: Type[Property];//all properties are as they are
+  //   [Property in keyof Type]+?: Type[Property];//all properties are optional// DEFAULT
+  [Property in keyof Type]-?: Type[Property]; //all properties are required
+};
+
+type MaybeUser = {
+  id: string;
+  name?: string;
+  age?: number;
+};
+
+type User = Concrete<MaybeUser>;
