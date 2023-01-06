@@ -40,3 +40,12 @@ const specialGreeter = new SpecialGreeter('Max');
 specialGreeter.greet(); //OK
 // specialGreeter.getName(); //Error, I can't access the protected method getName()
 specialGreeter.greet2(); //OK, because I override the method in the subclass and it is public
+
+// 3- private -------------------------------------
+// is like protected, but doesn’t allow access to the member even from subclasses:
+class Base2 {
+  private x = 0;
+}
+class Derived2 extends Base2 {
+  //   x = 1; //Error, I can't extend a class with a private property
+}
