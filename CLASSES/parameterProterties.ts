@@ -17,3 +17,13 @@ const params = new Params(1, 2, 3);
 console.log(params); //Params {x: 1, y: 2, z: 3}
 // console.log(params.z); //Error, I can't access the private property z
 // console.log(params.y); //Error, I can't access the protected property y
+
+// CLASS EXPRESSIONS -------------------------------------
+const SomeClass = class<Type> {
+  content: Type;
+  constructor(value: Type) {
+    this.content = value;
+  }
+};
+
+const someClass = new SomeClass('Hello, world');
