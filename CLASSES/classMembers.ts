@@ -59,3 +59,18 @@ class C {
 // 1- If get exists but no set, the property is automatically readonly
 // 2- If the type of the setter parameter is not specified, it is inferred from the return type of the getter
 // 3- Getters and setters must have the same Member Visibility
+
+// INDEX SIGNATURES-----------------------------
+//Same as in interfaces
+class MyClass {
+  [s: string]: boolean | ((s: string) => boolean);
+
+  check(s: string) {
+    return this[s] as boolean;
+  }
+}
+const myClass1 = new MyClass();
+myClass1.name1 = true;
+myClass1.name2 = false;
+myClass1.check('name1'); //true
+myClass1.check('name2'); //false
