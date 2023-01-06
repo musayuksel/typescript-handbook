@@ -30,3 +30,8 @@ interface Email {
 const email: MessageOf<Email> = 'Hello World'; //OK
 
 type MessageOf2<T> = T extends { message: unknown } ? T['message'] : never; //OK
+
+// INFERRING WITH CONDITIONAL TYPES-----------------------------
+// Conditional types provide us with a way to infer from types we compare against in the true branch using the infer keyword.
+// For example, we could have inferred the element type in Flatten instead of fetching it out “manually” with an indexed access type:
+type Flatten<T> = T extends Array<infer U> ? U : T; //*** This is ADVANCED, Learn infer */
