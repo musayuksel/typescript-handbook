@@ -74,3 +74,28 @@ const mySafe = new MySafe();
 // OK
 console.log(mySafe['secretKey']);
 // console.log(mySafe['#verySecretKey']); //Error, private fields are not allowed to access using bracket notation
+
+//3- static -------------------------------------
+// static members are accessed using the class name, not an instance of the class:
+class MyClass2 {
+  static x = 0;
+  private static y = 0; //we  can use private|protected|public with static members
+  static printX() {
+    console.log(MyClass2.x);
+  }
+}
+console.log(MyClass2.x); //OK
+MyClass2.printX(); //OK
+// TypeScript (and JavaScript) don’t have a construct called static class the same way as C#.
+// Unnecessary "static" class
+class MyStaticClass {
+  static doSomething() {}
+}
+
+// Preferred (alternative 1)
+function doSomething() {}
+
+// Preferred (alternative 2)
+const MyHelperObject = {
+  dosomething() {},
+};
