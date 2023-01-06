@@ -24,3 +24,18 @@ class C2 implements A {
 }
 const c = new C2();
 // c.y = 10;//Error implementing an interface with an optional property doesn’t create that property:
+
+// EXTENDING CLASSES -----------------------------
+class Animal {
+  move() {
+    console.log('Moving...');
+  }
+}
+class Dog extends Animal {
+  bark() {
+    console.log('Barking...');
+  }
+}
+const dog = new Dog();
+dog.bark(); //OK
+dog.move(); //OK
