@@ -49,3 +49,10 @@ class Base2 {
 class Derived2 extends Base2 {
   //   x = 1; //Error, I can't extend a class with a private property
 }
+//cross instance private access
+class DoSomething {
+  private x = 10;
+  public sameAs(other: DoSomething) {
+    return other.x === this.x;
+  }
+}
