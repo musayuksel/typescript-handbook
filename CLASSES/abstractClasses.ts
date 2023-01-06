@@ -16,3 +16,27 @@ class DerivedAbstract extends BaseAbstract {
     return 'world';
   }
 }
+
+// subtype relationships between classes exist even if there’s no explicit inheritance:
+class Person6 {
+  name: string;
+  age: number;
+  constructor(name: string, age: number) {
+    this.name = name;
+    this.age = age;
+  }
+}
+
+class Employee {
+  name: string;
+  age: number;
+  salary: number;
+  constructor(name: string, age: number, salary: number) {
+    this.name = name;
+    this.age = age;
+    this.salary = salary;
+  }
+}
+
+// OK ????
+const person4: Person6 = new Employee('Max', 30, 100000);
