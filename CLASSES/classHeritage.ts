@@ -39,3 +39,17 @@ class Dog extends Animal {
 const dog = new Dog();
 dog.bark(); //OK
 dog.move(); //OK
+
+// OVERRIDING METHODS -----------------------------
+class Dog2 extends Animal {
+  // move(area: string){//error, we need to add the parameter area
+  move(area?: string) {
+    if (area) {
+      console.log(`Moving to ${area}...`);
+    } else {
+      super.move(); //We can call the super method using super.methodName()
+    }
+  }
+}
+// IMPORTANT:
+const dog2: Animal = new Dog2(); //we can give superclasses a more specific type than the subclass
