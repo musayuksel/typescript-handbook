@@ -56,3 +56,21 @@ class DoSomething {
     return other.x === this.x;
   }
 }
+
+// CAVEATS -------------------------------------
+// private and protected are only enforced during type checking.
+// They are removed from the compiled JavaScript code.
+// private also allows access using bracket notation during type checking.
+// This makes private-declared fields potentially easier to access for things like unit tests,
+// with the drawback that these fields are soft private and don’t strictly enforce privacy.
+class MySafe {
+  private secretKey = 12345;
+  #verySecretKey = 54321; //private fields, best practice
+}
+const mySafe = new MySafe();
+
+// Not allowed during type checking
+// console.log(mySafe.secretKey);//Error
+// OK
+console.log(mySafe['secretKey']);
+// console.log(mySafe['#verySecretKey']); //Error, private fields are not allowed to access using bracket notation
