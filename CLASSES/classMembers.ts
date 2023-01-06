@@ -21,3 +21,12 @@ class GoodPerson {
     this.lastName = lastName;
   }
 }
+
+// SUPER CALLS
+class GoodPerson2 extends GoodPerson {
+  age: number;
+  constructor(fistName = 'userName', lastName = 'userLastName', age = 0) {
+    super('Max', 'Mustermann');
+    this.age = age;
+  }
+}
