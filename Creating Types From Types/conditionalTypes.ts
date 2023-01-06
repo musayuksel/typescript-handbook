@@ -35,3 +35,12 @@ type MessageOf2<T> = T extends { message: unknown } ? T['message'] : never; //OK
 // Conditional types provide us with a way to infer from types we compare against in the true branch using the infer keyword.
 // For example, we could have inferred the element type in Flatten instead of fetching it out “manually” with an indexed access type:
 type Flatten<T> = T extends Array<infer U> ? U : T; //*** This is ADVANCED, Learn infer */
+
+// DISTRIBUTIVE CONDITIONAL TYPES-----------------------------
+type ToArray<Type> = Type extends any ? Type[] : never;
+type StrArrOrNumArr = ToArray<string | number>; // string[] | number[] which should be (string | number)[]
+// The problem is that the conditional type is evaluated once for each type in the union, and then the results are unioned together.
+//  To avoid that behavior, you can surround each side of the extends keyword with square brackets.
+
+type ToArrayNonDist<Type> = [Type] extends [any] ? Type[] : never;
+type StrArrOrNumArr3 = ToArrayNonDist<string | number>; // (string | number)[]
