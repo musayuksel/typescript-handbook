@@ -38,3 +38,15 @@ const constStingToArr = convertToArray3<TUser>({ name: 'hello' });
 const findIndex = <T>(array: T[], item: T): number =>
   //4.function gets a GENERIC array and a GENERIC callback and returns a number
   array.findIndex((arrayItem) => arrayItem === item);
+
+//   MULTIPLE GENERIC TYPES
+const convertToArray4 = <T, U>(value: T, value2: U): [T, U] => {
+  //5.function gets a GENERIC value and returns an array of GENERIC
+  return [value, value2];
+};
+
+// USAGE:
+const constStingToArr2 = convertToArray4<TUser, string>(
+  { name: 'hello' },
+  'world'
+);
