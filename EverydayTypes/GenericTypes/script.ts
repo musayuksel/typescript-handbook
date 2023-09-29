@@ -28,11 +28,19 @@ const convertToArray3 = <T>(value: T): T[] => {
   //3.function gets a GENERIC value and returns an array of GENERIC
   return [value];
 };
-// USAGE:
 
+// USAGE:
 type TUser = { name: string };
 // I can pass a specific type
 const constStingToArr = convertToArray3<TUser>({ name: 'hello' });
+
+// restrict the type of the generic
+
+const convertToArray3OnlyStringOrNumber = <T extends string | number>(
+  value: T
+): T[] => {
+  return [value];
+};
 
 // MORE ADVANCED USAGE:s
 const findIndex = <T>(array: T[], item: T): number =>
